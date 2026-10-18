@@ -1,0 +1,84 @@
+/*Mobile*/
+@media (max-width: 600px) {
+
+  #galaxy-container {
+    opacity: 0.25;
+  }
+
+}
+
+/* For centering tables */
+.table-centered-class {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.table-centered-class table {
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+.table-centered-class th,
+.table-centered-class td {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
+}
+
+
+/* Misc */
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background: #000000;
+  color: #00eaff;
+}
+
+h1 {
+  margin: 0;
+
+  color: #d5ffe1;
+  font-size: clamp(2rem, 6vw, 5rem);
+  letter-spacing: 0.2em;
+
+  text-shadow:
+    0 0 5px #00ff66,
+    0 0 15px #00ff66,
+    0 0 35px rgba(0, 255, 100, 0.6);
+}
+
+h2 {
+    font-family: 'LocalNovaSquare';
+    color: #ff0090;
+    text-align: center;
+    text-shadow: 0 0 8px #00eaff;
+    border-bottom: 1px solid #00eaff33;
+    padding-bottom: 4px;
+} 
+
+h3 {
+    color: #00ff66;
+    text-align: center;
+    font-family: 'LocalNovaSquare';
+}
+
+h4 {
+    background-color: #000000;
+    color: #05FFA1;
+    font-family: "LocalGenos", monospace;
+    line-height: 1.6;
+}
+
+a {
+    color: #05FFA1;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 6px #00eaff;
+}
