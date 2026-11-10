@@ -54,6 +54,11 @@ window.FORUM = {
       name: "THE OBSERVATORY",
       blurb: "Theory, AI and the wider questions."
     }
+   {
+      id: "adeptfour",
+      name: "ADEPTUS 4CHANICUS",
+      blurb: "Jokes, memes, and stuff that doesn't belong on the other boards."
+    }
   ],
 
   /* TOPICS
@@ -69,7 +74,7 @@ window.FORUM = {
       title: "Welcome and Rules",
       board: "hall",
       blurb: "Start here. How the forum works and what is not allowed.",
-      date: "11/09/2026",
+      date: "11/10/2026",
       pinned: true
     },
     {
@@ -77,35 +82,49 @@ window.FORUM = {
       title: "Introductions",
       board: "hall",
       blurb: "Say who you are, what you build and what you want to explore.",
-      date: "11/09/2026"
+      date: "11/10/2026"
     },
     {
       slug: "project-proposals",
       title: "Project Proposals",
       board: "workshop",
       blurb: "Pitch an idea, find collaborators, argue about the premise.",
-      date: "11/09/2026"
+      date: "11/10/2026"
     },
     {
       slug: "hardware-experiments",
       title: "Hardware Experiments",
       board: "workshop",
       blurb: "Unusual builds, salvaged parts and experiments that might fail.",
-      date: "11/09/2026"
+      date: "11/10/2026"
     },
     {
       slug: "servitors-and-familiars",
       title: "Servitors and Familiars",
       board: "observatory",
       blurb: "Training, shaping and understanding AI.",
-      date: "11/09/2026"
+      date: "11/10/2026"
     },
     {
       slug: "meeting-threads",
       title: "Meeting Threads",
       board: "observatory",
       blurb: "Notes and follow-up from the /tow/ general meetings.",
-      date: "11/09/2026"
+      date: "11/10/2026"
+    }
+   {
+      slug: "memes-jokes",
+      title: "Memes and Jokes",
+      board: "adeptfour",
+      blurb: "Jokes, memes, and stuff that doesn't belong on the other boards.",
+      date: "11/10/2026"
+    }
+    {
+      slug: "old-board",
+      title: "Old Board",
+      board: "adeptfour",
+      blurb: "Old board layout. Posts from when the board was WIP (Pre 11/10/2026) are also available for viewing.",
+      date: "11/10/2026"
     }
   ]
 };
