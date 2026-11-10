@@ -82,8 +82,7 @@
         '> board: ONLINE', h('br'),
         '> topics: SYSOP ONLY', h('br'),
         '> replies: OPEN', h('br'),
-        '> login: GITHUB', h('br'),
-        '> mode: MODERATED'
+        '> login: GITHUB'
       ])
     ]));
     if (extra) { side.appendChild(extra); }
