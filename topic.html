@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Topic - The Order of the Machine Tower Forum</title>
+
+  <!-- Picks the color theme before the page paints: ?theme=A|B|C in the address, else the visitor's last choice, else A -->
+  <script>
+    (function () {
+      var t = 'A';
+      try {
+        var p = new URLSearchParams(window.location.search).get('theme');
+        var s = null;
+        try { s = window.localStorage.getItem('ootmt-theme'); } catch (e) {}
+        t = String(p || s || 'A').toUpperCase();
+      } catch (e) {}
+      if (t !== 'A' && t !== 'B' && t !== 'C') { t = 'A'; }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&amp;family=VT323&amp;family=Press+Start+2P&amp;display=swap">
+  <link rel="stylesheet" href="forum_bbs.css">
+  <script src="forum_data.js"></script>
+</head>
+
+<body data-page="topic">
+
+  <div class="marquee" aria-hidden="true">
+    <span>*** THE FORUM OF THE ORDER OF THE MACHINE TOWER *** SIGN IN WITH GITHUB TO REPLY *** TOPICS ARE OPENED BY THE SYSOP *** KEEP IT CLEAN, KEEP IT CURIOUS ***</span>
+  </div>
+
+  <div class="wrap" id="content">
+
+    <header class="masthead">
+      <svg class="tower" width="96" height="130" viewBox="0 0 100 140" role="img" aria-label="Order crest: a radio tower">
+        <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
+          <path d="M50 14 L24 132 M50 14 L76 132 M18 132 H82"/>
+          <path d="M44 40 H56 M39 62 H61 M34 86 H66 M29 110 H71"/>
+          <path d="M44 40 L61 62 M56 40 L39 62 M39 62 L66 86 M61 62 L34 86 M34 86 L71 110 M66 86 L29 110"/>
+          <circle cx="50" cy="10" r="4" fill="currentColor"/>
+          <path class="arc" d="M36 6 A18 18 0 0 0 36 22"/>
+          <path class="arc" d="M64 6 A18 18 0 0 1 64 22"/>
+          <path class="arc2" d="M28 0 A28 28 0 0 0 28 28"/>
+          <path class="arc2" d="M72 0 A28 28 0 0 1 72 28"/>
+        </g>
+      </svg>
+      <div class="masthead__text">
+        <div class="kicker">[ THE FORUM ]</div>
+        <h1>THE ORDER OF THE MACHINE TOWER</h1>
+        <div class="prompt">C:\FORUM\&gt;<span class="blink">_</span></div>
+      </div>
+      <svg class="tower" width="96" height="130" viewBox="0 0 100 140" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round">
+          <path d="M50 14 L24 132 M50 14 L76 132 M18 132 H82"/>
+          <path d="M44 40 H56 M39 62 H61 M34 86 H66 M29 110 H71"/>
+          <path d="M44 40 L61 62 M56 40 L39 62 M39 62 L66 86 M61 62 L34 86 M34 86 L71 110 M66 86 L29 110"/>
+          <circle cx="50" cy="10" r="4" fill="currentColor"/>
+          <path class="arc3" d="M36 6 A18 18 0 0 0 36 22"/>
+          <path class="arc3" d="M64 6 A18 18 0 0 1 64 22"/>
+          <path class="arc" d="M28 0 A28 28 0 0 0 28 28"/>
+          <path class="arc" d="M72 0 A28 28 0 0 1 72 28"/>
+        </g>
+      </svg>
+    </header>
+
+    <nav class="nav" aria-label="Forum">
+      <a href="index.html" data-link="home">[ ALL BOARDS ]</a>
+      <a href="https://adeptus-telvannus.neocities.org/hpgs/machinetower_main" data-link="main">[ MAIN SITE ]</a>
+    </nav>
+
+    <section class="themebar" aria-label="Color theme">
+      <span class="themebar__label">SELECT THEME &gt;</span>
+      <button type="button" class="theme-btn" data-set-theme="A" aria-pressed="false">
+        <span class="chips" aria-hidden="true"><i style="background:#05d9ff"></i><i style="background:#ff2bd6"></i></span>THEME A
+      </button>
+      <button type="button" class="theme-btn" data-set-theme="B" aria-pressed="false">
+        <span class="chips" aria-hidden="true"><i style="background:#39ff14"></i><i style="background:#ffb000"></i></span>THEME B
+      </button>
+      <button type="button" class="theme-btn" data-set-theme="C" aria-pressed="false">
+        <span class="chips" aria-hidden="true"><i style="background:#05d9ff"></i><i style="background:#ffb000"></i></span>THEME C
+      </button>
+    </section>
+
+    <div class="cols">
+      <aside class="side" id="side"></aside>
+      <main class="content">
+
+        <!-- forum.js draws the topic title and description in here -->
+        <div id="view">
+          <noscript><p>This forum needs JavaScript to load its topics and comments.</p></noscript>
+        </div>
+
+        <!-- Comments. The giscus script tag is written here, in the page, for the topic named in the address (?t=...).
+             It only appears when that topic exists in forum_data.js. -->
+        <section class="win win--alt" id="replies" hidden>
+          <div class="win__bar">REPLIES.LOG</div>
+          <div class="win__body">
+            <p class="replies__note">Sign in with GitHub to reply. Replies appear below.</p>
+            <div class="giscus-box" id="giscus-box">
+              <script>
+                (function () {
+                  var D = window.FORUM, slug = '', t = null, board = null, i;
+                  if (!D || !D.topics || !D.boards) { return; }
+                  try { slug = new URLSearchParams(window.location.search).get('t') || ''; } catch (e) {}
+                  for (i = 0; i < D.topics.length; i++) { if (D.topics[i].slug === slug) { t = D.topics[i]; } }
+                  if (!t) { return; }
+                  for (i = 0; i < D.boards.length; i++) { if (D.boards[i].id === t.board) { board = D.boards[i]; } }
+                  document.getElementById('replies').hidden = false;
+
+                  var c = D.config;
+                  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+                  window.giscusFailed = function (why) {
+                    if (document.querySelector('#replies .giscus, #replies giscus-widget, #replies iframe')) { return; }
+                    var box = document.getElementById('replies-fail');
+                    document.getElementById('replies-why').textContent = why;
+                    box.hidden = false;
+                  };
+                  window.setTimeout(function () { window.giscusFailed('no comment box appeared after 8 seconds'); }, 8000);
+
+                  document.write(
+                    '<script src="https://giscus.app/client.js"' +
+                    ' data-repo="' + esc(c.repo) + '"' +
+                    ' data-repo-id="' + esc(c.repoId) + '"' +
+                    ' data-category="' + esc((board && board.category) || c.category) + '"' +
+                    ' data-category-id="' + esc((board && board.categoryId) || c.categoryId) + '"' +
+                    ' data-mapping="specific"' +
+                    ' data-term="' + esc(t.slug) + '"' +
+                    ' data-strict="0"' +
+                    ' data-reactions-enabled="0"' +
+                    ' data-emit-metadata="0"' +
+                    ' data-input-position="top"' +
+                    ' data-theme="' + esc(c.giscusTheme) + '"' +
+                    ' data-lang="en"' +
+                    ' crossorigin="anonymous"' +
+                    ' onerror="giscusFailed(\'the giscus script could not be loaded\')"' +
+                    ' async><\/script>'
+                  );
+                })();
+              </script>
+            </div>
+            <div class="placeholder" id="replies-fail" hidden>
+              <div class="placeholder__head">[ COMMENT BOX DID NOT LOAD ]</div>
+              <p>Reason: <span id="replies-why"></span></p>
+              <p>Things to check: an ad or script blocker on this page, GitHub Discussions turned on for the repo, and the giscus app installed on the repo.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="actions">
+          <a class="btn-forum" href="index.html" data-link="home">&lt; BACK TO ALL TOPICS</a>
+        </div>
+
+      </main>
+    </div>
+
+    <footer class="foot">
+      <div class="stripe"></div>
+      <a class="home" href="https://adeptus-telvannus.neocities.org/hpgs/machinetower_main" data-link="main">[ RETURN TO MAIN SITE ]</a>
+      <div class="end">CONNECTION TERMINATED <span class="blink">_</span></div>
+    </footer>
+
+  </div>
+
+  <script src="forum.js"></script>
+
+</body>
+
+</html>
